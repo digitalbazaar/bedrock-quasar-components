@@ -1,0 +1,35 @@
+{
+  "name": "bedrock-quasar-components",
+  "version": "1.0.0-0",
+  "description": "Quasar components for Bedrock Web apps",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint \"**/*.{js,vue}\""
+  },
+  "peerDependencies": {
+    "bedrock-quasar": "3.0.0 - 4.x",
+    "vue": "^2.6.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitalbazaar/bedrock-quasar-components"
+  },
+  "keywords": [
+    "bedrock",
+    "quasar"
+  ],
+  "author": {
+    "name": "Digital Bazaar, Inc.",
+    "email": "support@digitalbazaar.com",
+    "url": "https://digitalbazaar.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/digitalbazaar/bedrock-quasar-components/issues"
+  },
+  "homepage": "https://github.com/digitalbazaar/bedrock-quasar-components",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-digitalbazaar": "^2.3.0",
+    "eslint-plugin-vue": "^6.2.2"
+  }
+}
