@@ -55,7 +55,9 @@
                 v-for="col in props.cols"
                 :key="col.name">
                 <q-item-section class="text-center">
-                  <q-item-label caption>{{col.label}}</q-item-label>
+                  <q-item-label caption>
+                    {{col.label}}
+                  </q-item-label>
                   <div v-if="col.type === 'button'">
                     <q-btn
                       outline
@@ -63,7 +65,7 @@
                       no-caps
                       class="q-mt-xs"
                       :color="props.row.rowColor ? props.row.rowColor :
-                              col.buttonColor"
+                        col.buttonColor"
                       :label="col.buttonLabel"
                       @click.native="handleButton(col.field, props.row)" />
                   </div>
