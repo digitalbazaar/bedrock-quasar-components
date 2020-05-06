@@ -26,27 +26,34 @@
         </q-btn>
       </q-card-section>
       <q-separator />
-      <q-card-section>
+      <q-card-section class="q-pb-none">
         <slot />
-        <div
-          v-if="acceptLabel"
-          class="row justify-between">
+      </q-card-section>
+      <q-separator
+        v-if="bottomSeparator"
+        class="q-mb-md" />
+      <div
+        v-if="acceptLabel"
+        class="row justify-between q-px-md q-pb-md">
+        <div :class="fullWidthButtons ? 'col-6 q-pr-sm' : 'col-4'">
           <q-btn
             v-close-popup
             outline
             :disabled="loading"
             :label="cancelLabel"
             :color="cancelColor"
-            class="col-4" />
+            class="full-width" />
+        </div>
+        <div :class="fullWidthButtons ? 'col-6 q-pl-sm' : 'col-4'">
           <q-btn
             :disabled="loading || disableAcceptButton"
             :loading="loading"
             :label="acceptLabel"
             :color="acceptColor"
-            class="col-4"
+            class="full-width"
             @click="accept()" />
         </div>
-      </q-card-section>
+      </div>
     </q-card>
   </q-dialog>
 </template>
@@ -102,6 +109,14 @@ export default {
       required: true
     },
     disableAcceptButton: {
+      type: Boolean,
+      required: false
+    },
+    bottomSeparator: {
+      type: Boolean,
+      required: false
+    },
+    fullWidthButtons: {
       type: Boolean,
       required: false
     }
