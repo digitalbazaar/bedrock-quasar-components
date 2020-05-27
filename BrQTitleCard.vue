@@ -8,6 +8,8 @@
       {{title}}
       <slot name="head" />
     </h6>
+    <q-space />
+    <slot name="icon" />
     <q-separator />
     <q-card-section class="q-pa-none">
       <slot name="body" />
