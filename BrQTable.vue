@@ -8,7 +8,7 @@
       :flat="$q.screen.gt.sm"
       :grid="$q.screen.lt.md"
       class="full-width">
-      <template v-slot:body="props">
+      <template #body="props">
         <q-tr :props="props">
           <q-td
             v-for="col in columns"
@@ -43,7 +43,7 @@
         </q-tr>
       </template>
       <!-- Mobile Support Prop -->
-      <template v-slot:item="props">
+      <template #item="props">
         <div
           class="q-pt-xs q-px-sm q-pb-sm col-xs-12 col-sm-6
             col-md-4 col-lg-3 profile-card">
