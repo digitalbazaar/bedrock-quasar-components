@@ -1,6 +1,6 @@
 {
   "name": "bedrock-quasar-components",
-  "version": "1.0.0",
+  "version": "1.0.1-0",
   "description": "Quasar components for Bedrock Web apps",
   "main": "index.js",
   "scripts": {
