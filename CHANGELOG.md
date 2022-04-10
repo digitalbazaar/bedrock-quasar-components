@@ -1,5 +1,10 @@
 # bedrock-quasar-components ChangeLog
 
+## 2.0.1 - 2022-04-xx
+
+### Fixed
+- Fix component exports.
+
 ## 2.0.0 - 2022-04-10
 
 ### Changed
