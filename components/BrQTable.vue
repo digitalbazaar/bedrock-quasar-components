@@ -93,9 +93,10 @@
     </q-table>
   </div>
 </template>
+
 <script>
 /*!
- * Copyright (c) 2020 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2020-2022 Digital Bazaar, Inc. All rights reserved.
  */
 export default {
   name: 'BrQTable',
@@ -132,8 +133,8 @@ export default {
   }
 };
 </script>
-<style lang="scss">
 
+<style lang="scss">
 .profile-card:first-child {
   margin: auto;
 }
@@ -141,5 +142,4 @@ export default {
 .q-table--grid .q-table__bottom {
   border-top: solid 1px rgba(0,0,0,0.12);
 }
-
 </style>
