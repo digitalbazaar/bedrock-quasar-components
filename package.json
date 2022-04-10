@@ -1,5 +1,5 @@
 {
-  "name": "bedrock-quasar-components",
+  "name": "@bedrock/quasar-components",
   "version": "1.1.1-0",
   "type": "module",
   "description": "Quasar components for Bedrock Web apps",
@@ -12,7 +12,7 @@
     "components/*"
   ],
   "peerDependencies": {
-    "@bedrock/quasar": "^5.0.0",
+    "@bedrock/quasar": "^6.0.0",
     "vue": "^2.6.12"
   },
   "repository": {
