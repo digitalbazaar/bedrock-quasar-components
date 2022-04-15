@@ -36,10 +36,8 @@
     "eslint": "^7.32.0",
     "eslint-config-digitalbazaar": "^2.8.0",
     "eslint-plugin-jsdoc": "^37.9.7",
+    "eslint-plugin-vue": "^8.6.0",
     "jsdoc": "^3.6.4",
     "jsdoc-to-markdown": "^7.1.1"
-  },
-  "dependencies": {
-    "eslint-plugin-vue": "^8.6.0"
   }
 }
