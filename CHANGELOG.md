@@ -1,6 +1,6 @@
 # bedrock-quasar-components ChangeLog
 
-## 2.0.2 - 2022-xx-xx
+## 2.0.2 - 2022-04-16
 
 ### Fixed
 - Fix dependency typo.
