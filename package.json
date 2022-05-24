@@ -13,7 +13,7 @@
   ],
   "peerDependencies": {
     "@bedrock/quasar": "^6.0.0",
-    "vue": "^2.6.12"
+    "vue": "^3.2.36"
   },
   "repository": {
     "type": "git",
