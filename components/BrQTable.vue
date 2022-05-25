@@ -23,7 +23,7 @@
                   :color="props.row.rowColor ?
                     props.row.rowColor : col.buttonColor"
                   :label="col.buttonLabel"
-                  @click.native="handleButton(col.field, props.row)" />
+                  @click="handleButton(col.field, props.row)" />
               </div>
               <div v-else-if="col.type === 'chip'">
                 <q-chip
@@ -67,7 +67,7 @@
                       :color="props.row.rowColor ? props.row.rowColor :
                         col.buttonColor"
                       :label="col.buttonLabel"
-                      @click.native="handleButton(col.field, props.row)" />
+                      @click="handleButton(col.field, props.row)" />
                   </div>
                   <div v-else-if="col.type === 'chip'">
                     <q-chip
@@ -119,6 +119,7 @@ export default {
       required: true
     }
   },
+  emits: ['handleButton'],
   data() {
     return {};
   },
@@ -128,7 +129,7 @@ export default {
         field,
         row
       };
-      this.$emit('handleButton', data);
+      this.$emitExtendable('handleButton', data);
     }
   }
 };
