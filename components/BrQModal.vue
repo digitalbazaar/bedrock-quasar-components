@@ -1,11 +1,10 @@
 <template>
   <q-dialog
     ref="dialog"
-    :value="value"
+    v-model="open"
     :persistent="persistent"
     no-route-dismiss
-    no-backdrop-dismiss
-    @input="input">
+    no-backdrop-dismiss>
     <q-card :style="style">
       <q-card-section class="q-pl-md q-pa-sm text-center">
         <div class="text-subtitle1">
@@ -59,6 +58,8 @@
 </template>
 
 <script>
+import {emitExtendable} from '@digitalbazaar/vue-extendable-event';
+
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
@@ -104,7 +105,7 @@ export default {
       type: String,
       required: true
     },
-    value: {
+    modelValue: {
       type: Boolean,
       required: true
     },
@@ -120,6 +121,21 @@ export default {
       type: Boolean,
       required: false
     }
+  },
+  emits: ['accept', 'close', 'update:modelValue'],
+  setup(props, {emit}) {
+    const open = computed({
+      get: () => props.modelValue,
+      set: async value => {
+        emit('update:modelValue', value);
+        if(!value) {
+          await emitExtendable('close');
+        }
+      }
+    });
+    return {
+      open
+    };
   },
   data() {
     return {
@@ -139,12 +155,6 @@ export default {
         this.hide();
       } finally {
         this.loading = false;
-      }
-    },
-    async input($event) {
-      this.$emit('input', $event);
-      if(!$event) {
-        await this.$emitExtendable('close');
       }
     },
     hide() {
