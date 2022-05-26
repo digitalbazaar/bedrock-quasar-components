@@ -1,7 +1,7 @@
 <template>
   <div class="column items-center">
     <q-table
-      :rows="data"
+      :rows="rows"
       :columns="columns"
       :loading="loading"
       :row-key="rowKey"
