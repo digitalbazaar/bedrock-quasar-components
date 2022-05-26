@@ -1,5 +1,10 @@
 # bedrock-quasar-components ChangeLog
 
+## 3.0.0 - 2022-05-xx
+
+### Changed
+- **BREAKING**: Require `@bedrock/quasar@8` (Quasar 2 and Vue 3).
+
 ## 2.0.2 - 2022-04-16
 
 ### Fixed
