@@ -58,11 +58,12 @@
 </template>
 
 <script>
-import {emitExtendable} from '@digitalbazaar/vue-extendable-event';
-
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
+import {computed} from 'vue';
+import {createEmitExtendable} from '@digitalbazaar/vue-extendable-event';
+
 export default {
   name: 'BrQModal',
   props: {
@@ -124,6 +125,7 @@ export default {
   },
   emits: ['accept', 'close', 'update:modelValue'],
   setup(props, {emit}) {
+    const emitExtendable = createEmitExtendable();
     const open = computed({
       get: () => props.modelValue,
       set: async value => {
