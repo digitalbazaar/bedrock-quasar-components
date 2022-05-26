@@ -1,7 +1,7 @@
 <template>
   <div class="column items-center">
     <q-table
-      :data="data"
+      :rows="data"
       :columns="columns"
       :loading="loading"
       :row-key="rowKey"
@@ -110,7 +110,7 @@ export default {
       type: Array,
       required: true
     },
-    data: {
+    rows: {
       type: Array,
       required: true
     },
@@ -120,9 +120,6 @@ export default {
     }
   },
   emits: ['handleButton'],
-  data() {
-    return {};
-  },
   methods: {
     handleButton(field, row) {
       const data = {
