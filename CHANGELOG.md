@@ -1,5 +1,10 @@
 # bedrock-quasar-components ChangeLog
 
+## 3.1.0 - 2022-06-xx
+
+### Added
+- Add `BrQResizableImageInput` component.
+
 ## 3.0.0 - 2022-05-26
 
 ### Changed
