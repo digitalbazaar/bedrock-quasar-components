@@ -11,7 +11,7 @@
 /*!
  * Copyright (c) 2021-2022 Digital Bazaar, Inc. All rights reserved.
  */
-import {getCurrentInstance} from 'vue';
+import {getCurrentInstance, onBeforeUnmount} from 'vue';
 
 export default {
   name: 'BrQResizableImageInput',
@@ -19,23 +19,13 @@ export default {
     const instance = getCurrentInstance();
 
     let deferred;
+    const destroyDeferred = () => deferred && deferred.destroy();
+    onBeforeUnmount(destroyDeferred);
+
     const getImage = async ({maxImageWidth} = {}) => {
       // transform image upload process (event handlers, etc.) into a promise
-      deferred = {
-        maxImageWidth,
-        cancel() {
-          const error = new Error('Image upload canceled.');
-          error.name = 'AbortError';
-          deferred.reject(error);
-        }
-      };
-      deferred.promise = new Promise((resolve, reject) => {
-        deferred.resolve = resolve;
-        deferred.reject = reject;
-      });
-      // if focus returns to the body without an image upload being handled,
-      // cancel the image upload
-      document.body.addEventListener('focusin', deferred.cancel, {once: true});
+      destroyDeferred();
+      deferred = _createDeferred({maxImageWidth});
 
       // open image upload dialog
       instance.refs.imageInput.click();
@@ -54,6 +44,11 @@ export default {
         return;
       }
 
+      // save deferred params and then destroy it
+      const {maxImageWidth, resolve, reject} = deferred;
+      deferred.destroy();
+      deferred = null;
+
       // read image URL
       const src = await _readFile({file});
 
@@ -62,12 +57,37 @@ export default {
       imageInput.value = '';
 
       // resize image
-      _resizeImage({src}).then(deferred.resolve, deferred.reject);
+      _resizeImage({src, maxImageWidth}).then(resolve, reject);
     };
 
     return {handleImageUpload, getImage};
   }
 };
+
+function _createDeferred({maxImageWidth}) {
+  const deferred = {
+    maxImageWidth,
+    cancel() {
+      const error = new Error('Image upload canceled.');
+      error.name = 'AbortError';
+      deferred.reject(error);
+    },
+    destroy() {
+      document.body.removeEventListener('focusin', deferred.cancel);
+    }
+  };
+
+  deferred.promise = new Promise((resolve, reject) => {
+    deferred.resolve = resolve;
+    deferred.reject = reject;
+  });
+
+  // if focus returns to the body without an image upload being handled,
+  // cancel the image upload
+  document.body.addEventListener('focusin', deferred.cancel, {once: true});
+
+  return deferred;
+}
 
 function _readFile({file}) {
   return new Promise((resolve, reject) => {
