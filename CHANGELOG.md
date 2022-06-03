@@ -1,6 +1,6 @@
 # bedrock-quasar-components ChangeLog
 
-## 3.1.1 - 2022-06-xx
+## 3.1.1 - 2022-06-02
 
 ### Fixed
 - Clean up event listeners in `BrQResizableImageInput`.
