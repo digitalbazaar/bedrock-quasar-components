@@ -76,11 +76,10 @@ function _createDeferred({maxImageWidth}) {
       document.body.removeEventListener('focusin', deferred.scheduleCancel);
     },
     scheduleCancel() {
-      // a timeout of 250ms was arrived at experimentally; 100ms seemed to be
-      // sufficient in 100% of tests, but 250ms allows for variance in other
-      // browsers -- just deferring to the next turn of the event loop (timeout
-      // of `0`) did not work in chromium
-      timeoutId = setTimeout(deferred.cancel, 250);
+      // a timeout of 1000ms was arrived at experimentally; a more robust
+      // solution is needed in the future; just deferring to the next turn
+      // of the event loop (timeout of `0`) did not work in chromium
+      timeoutId = setTimeout(deferred.cancel, 1000);
     },
     cancel() {
       const error = new Error('Image upload canceled.');
