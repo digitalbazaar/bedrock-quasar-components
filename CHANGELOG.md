@@ -1,5 +1,11 @@
 # bedrock-quasar-components ChangeLog
 
+## 3.1.2 - 2022-06-xx
+
+### Fixed
+- Fix image upload cancelation detection in older browsers that
+  do not properly order `focusin` and `change` events.
+
 ## 3.1.1 - 2022-06-02
 
 ### Fixed

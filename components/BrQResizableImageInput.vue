@@ -4,6 +4,7 @@
     type="file"
     accept="image/*"
     style="display: none"
+    @cancel="uploadCanceled"
     @change="handleImageUpload">
 </template>
 
@@ -33,8 +34,8 @@ export default {
     };
 
     const handleImageUpload = async event => {
-      // prevent cancelation when focusing back in body again
-      document.body.removeEventListener('focusin', deferred.cancel);
+      // prevent any scheduled cancelation
+      deferred.unscheduleCancel();
 
       const {target: imageInput} = event;
       const [file] = imageInput.files;
@@ -60,20 +61,34 @@ export default {
       _resizeImage({src, maxImageWidth}).then(resolve, reject);
     };
 
-    return {handleImageUpload, getImage};
+    const uploadCanceled = () => deferred?.cancel();
+
+    return {handleImageUpload, getImage, uploadCanceled};
   }
 };
 
 function _createDeferred({maxImageWidth}) {
+  let timeoutId;
   const deferred = {
     maxImageWidth,
+    unscheduleCancel() {
+      clearTimeout(timeoutId);
+      document.body.removeEventListener('focusin', deferred.scheduleCancel);
+    },
+    scheduleCancel() {
+      // a timeout of 250ms was arrived at experimentally; 100ms seemed to be
+      // sufficient in 100% of tests, but 250ms allows for variance in other
+      // browsers -- just deferring to the next turn of the event loop (timeout
+      // of `0`) did not work in chromium
+      timeoutId = setTimeout(deferred.cancel, 250);
+    },
     cancel() {
       const error = new Error('Image upload canceled.');
       error.name = 'AbortError';
       deferred.reject(error);
     },
     destroy() {
-      document.body.removeEventListener('focusin', deferred.cancel);
+      document.body.removeEventListener('focusin', deferred.scheduleCancel);
     }
   };
 
@@ -82,9 +97,13 @@ function _createDeferred({maxImageWidth}) {
     deferred.reject = reject;
   });
 
-  // if focus returns to the body without an image upload being handled,
-  // cancel the image upload
-  document.body.addEventListener('focusin', deferred.cancel, {once: true});
+  // not every browser has implemented `cancel` event for file dialogs; to
+  // approximate behavior the `focusin` event is used; so when focus returns to
+  // the body without an image upload being handled, schedule canceling the
+  // upload; scheduling is done because `focusin` may be emitted prior to
+  // `change` on some versions of some browsers
+  document.body.addEventListener(
+    'focusin', deferred.scheduleCancel, {once: true});
 
   return deferred;
 }
