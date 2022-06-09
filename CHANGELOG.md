@@ -1,6 +1,6 @@
 # bedrock-quasar-components ChangeLog
 
-## 3.1.3 - 2022-06-xx
+## 3.1.3 - 2022-06-08
 
 ### Fixed
 - Extend timeout used to prevent false-positive image upload
