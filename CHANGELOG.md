@@ -1,6 +1,6 @@
 # bedrock-quasar-components ChangeLog
 
-## 3.1.2 - 2022-06-xx
+## 3.1.2 - 2022-06-08
 
 ### Fixed
 - Fix image upload cancelation detection in older browsers that
