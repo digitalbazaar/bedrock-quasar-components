@@ -3,7 +3,7 @@
   "version": "3.2.1-0",
   "type": "module",
   "description": "Quasar components for Bedrock Web apps",
-  "module": "./lib/index.js",
+  "exports": "./lib/index.js",
   "scripts": {
     "lint": "eslint ."
   },

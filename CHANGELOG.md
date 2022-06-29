@@ -1,5 +1,10 @@
 # bedrock-quasar-components ChangeLog
 
+## 4.0.0 - 2022-xx-xx
+
+### Changed
+- **BREAKING**: Use `exports` instead of `module`.
+
 ## 3.2.0 - 2022-07-05
 
 ### Added
