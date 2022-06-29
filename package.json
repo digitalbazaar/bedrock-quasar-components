@@ -4,13 +4,13 @@
   "type": "module",
   "description": "Quasar components for Bedrock Web apps",
   "exports": "./lib/index.js",
+  "files": [
+    "lib/**/*.js",
+    "components/**/*.vue"
+  ],
   "scripts": {
     "lint": "eslint ."
   },
-  "files": [
-    "lib/*",
-    "components/*"
-  ],
   "peerDependencies": {
     "@bedrock/quasar": "^8.0.0",
     "@digitalbazaar/vue-extendable-event": "^4.1.0",
