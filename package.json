@@ -12,7 +12,7 @@
     "lint": "eslint ."
   },
   "peerDependencies": {
-    "@bedrock/quasar": "^8.0.0",
+    "@bedrock/quasar": "github:digitalbazaar/bedrock-quasar#convert-to-module",
     "@digitalbazaar/vue-extendable-event": "^4.1.0",
     "vue": "^3.2.36"
   },
