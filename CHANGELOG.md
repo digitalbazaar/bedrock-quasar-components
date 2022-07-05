@@ -1,6 +1,6 @@
 # bedrock-quasar-components ChangeLog
 
-## 3.2.0 - 2022-07-xx
+## 3.2.0 - 2022-07-05
 
 ### Added
 - Allow image value to be manually set by webdriver (or similar) during
