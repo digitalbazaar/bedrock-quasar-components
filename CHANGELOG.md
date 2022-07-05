@@ -1,5 +1,11 @@
 # bedrock-quasar-components ChangeLog
 
+## 3.2.0 - 2022-07-xx
+
+### Added
+- Allow image value to be manually set by webdriver (or similar) during
+  tests subsequent to a call to `getImage()`.
+
 ## 3.1.3 - 2022-06-08
 
 ### Fixed

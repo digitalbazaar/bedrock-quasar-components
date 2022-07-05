@@ -23,17 +23,13 @@ export default {
     const destroyDeferred = () => deferred && deferred.destroy();
     onBeforeUnmount(destroyDeferred);
 
-    const getImage = async ({maxImageWidth} = {}) => {
-      // transform image upload process (event handlers, etc.) into a promise
-      destroyDeferred();
-      deferred = _createDeferred({maxImageWidth});
-
-      // open image upload dialog
-      instance.refs.imageInput.click();
-      return deferred.promise;
-    };
-
     const handleImageUpload = async event => {
+      if(!deferred) {
+        // input value not set via `getImage()`, return and wait for
+        // `getImage()` to be called to process the image upload
+        return;
+      }
+
       // prevent any scheduled cancelation
       deferred.unscheduleCancel();
 
@@ -54,11 +50,31 @@ export default {
       const src = await _readFile({file});
 
       // clear input field to trigger `onchange` event next time even if
-      // the same image is selected
+      // the same image is selected and to allow manually setting the image
+      // value prior to calling `getImage()` if the UI powerbox is to avoided
+      // during webdriver tests
       imageInput.value = '';
 
       // resize image
       _resizeImage({src, maxImageWidth}).then(resolve, reject);
+    };
+
+    const getImage = async ({maxImageWidth} = {}) => {
+      // transform image upload process (event handlers, etc.) into a promise
+      destroyDeferred();
+      deferred = _createDeferred({maxImageWidth});
+
+      // allow image input value to be manually set via webdriver prior to
+      // calling `getImage()`
+      const {imageInput} = instance.refs;
+      if(imageInput.value) {
+        // image value already set, schedule handle image upload
+        setTimeout(() => handleImageUpload({target: imageInput}));
+      } else {
+        // open image upload dialog to select image
+        instance.refs.imageInput.click();
+      }
+      return deferred.promise;
     };
 
     const uploadCanceled = () => deferred?.cancel();
