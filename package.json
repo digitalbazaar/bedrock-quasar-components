@@ -1,6 +1,6 @@
 {
   "name": "@bedrock/quasar-components",
-  "version": "4.0.0",
+  "version": "4.0.1-0",
   "type": "module",
   "description": "Quasar components for Bedrock Web apps",
   "exports": "./lib/index.js",
