@@ -1,5 +1,10 @@
 # bedrock-quasar-components ChangeLog
 
+## 4.1.0 - 2022-11-dd
+
+### Added
+- Add base splash screen component.
+
 ## 4.0.0 - 2022-08-19
 
 ### Changed
