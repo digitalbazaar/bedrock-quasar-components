@@ -5,10 +5,11 @@ module.exports = {
     node: true
   },
   extends: [
+    'plugin:quasar/standard',
     'digitalbazaar',
     'digitalbazaar/jsdoc',
     'digitalbazaar/module',
-    'digitalbazaar/vue'
+    'digitalbazaar/vue3'
   ],
   ignorePatterns: ['node_modules/']
 };

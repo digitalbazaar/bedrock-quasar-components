@@ -9,7 +9,7 @@
     "components/**/*.vue"
   ],
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint --ext .cjs,.js,.vue ."
   },
   "peerDependencies": {
     "@bedrock/quasar": "^9.0.0",
@@ -37,6 +37,7 @@
     "eslint": "^8.18.0",
     "eslint-config-digitalbazaar": "^4.0.1",
     "eslint-plugin-jsdoc": "^39.3.3",
+    "eslint-plugin-quasar": "^1.1.0",
     "eslint-plugin-unicorn": "^43.0.2",
     "eslint-plugin-vue": "^9.1.1",
     "jsdoc": "^3.6.10",
