@@ -12,7 +12,7 @@
     "lint": "eslint --ext .cjs,.js,.vue ."
   },
   "peerDependencies": {
-    "@bedrock/quasar": "^9.0.0",
+    "@bedrock/quasar": "digitalbazaar/bedrock-quasar#update-dependencies",
     "@digitalbazaar/vue-extendable-event": "^4.1.0",
     "vue": "^3.3.4"
   },
