@@ -12,7 +12,7 @@
     "lint": "eslint --ext .cjs,.js,.vue ."
   },
   "peerDependencies": {
-    "@bedrock/quasar": "digitalbazaar/bedrock-quasar#update-dependencies",
+    "@bedrock/quasar": "digitalbazaar/bedrock-quasar#update-br-vue",
     "@digitalbazaar/vue-extendable-event": "^4.1.0",
     "vue": "^3.3.4"
   },
@@ -42,5 +42,8 @@
     "eslint-plugin-vue": "^9.17.0",
     "jsdoc": "^4.0.2",
     "jsdoc-to-markdown": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

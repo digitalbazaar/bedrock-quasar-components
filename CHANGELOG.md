@@ -6,6 +6,7 @@
 - Add quasar linting.
 
 ### Changed
+- **BREAKING**: Drop support for Node.js < 18.
 - Update dependencies.
 - **BREAKING**: Update `@bedrock/quasar` to v10.0.0.
 
