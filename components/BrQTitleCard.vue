@@ -1,7 +1,6 @@
 <template>
   <q-card
     class="text-center"
-    inline
     color="white">
     <h6
       class="q-my-none text-subtitle1 text-center q-py-sm q-px-md">
