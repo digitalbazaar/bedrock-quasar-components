@@ -1,6 +1,6 @@
 # bedrock-quasar-components ChangeLog
 
-## 5.0.0 - 2023-10-xx
+## 5.0.0 - 2024-03-14
 
 ### Added
 - Add quasar linting.
