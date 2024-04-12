@@ -1,6 +1,6 @@
 # bedrock-quasar-components ChangeLog
 
-## 5.1.0 - 2024-04-dd
+## 5.1.0 - 2024-04-12
 
 ### Changed
 - Use `@bedrock/vue-extendable-event@4.2.0` for Composition API components.
