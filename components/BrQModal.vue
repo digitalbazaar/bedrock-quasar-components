@@ -125,7 +125,7 @@ export default {
   },
   emits: ['accept', 'close', 'update:modelValue'],
   setup(props, {emit}) {
-    const emitExtendable = createEmitExtendable();
+    const emitExtendable = createEmitExtendable({emit});
     const open = computed({
       get: () => props.modelValue,
       set: async value => {
