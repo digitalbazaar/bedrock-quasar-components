@@ -1,5 +1,10 @@
 # bedrock-quasar-components ChangeLog
 
+## 5.1.1 - 2024-08-xx
+
+### Fixed
+- Pass emit value to createEmitExtendable so emit is not undefined.
+
 ## 5.1.0 - 2024-04-12
 
 ### Changed
