@@ -1,5 +1,15 @@
 # bedrock-quasar-components ChangeLog
 
+## 6.0.0 - 2026-09-dd
+
+### Changed
+- **BREAKING**: Require `@bedrock/quasar@11`, replacing `@bedrock/quasar@10`,
+  in the peer dependency range. That release moves to `@bedrock/vue@6`; this
+  package does not use `@bedrock/vue` itself, so no code changes are needed
+  here.
+- **BREAKING**: Require `vue@3.5.38` or later, up from `^3.4.21`, to match the
+  range `@bedrock/quasar@11` requires.
+
 ## 5.1.1 - 2024-08-05
 
 ### Fixed
